@@ -7,7 +7,7 @@ ARG GIT_COMMIT=unspecified
 ARG GIT_REMOTE=unspecified
 ARG VERSION
 
-FROM node:12-alpine as optional-release-stage
+FROM node:14-alpine as optional-release-stage
 
 ARG FOUNDRY_PASSWORD
 ARG FOUNDRY_RELEASE_URL
@@ -36,7 +36,7 @@ RUN \
     unzip -d dist ${ARCHIVE} 'resources/*'; \
   fi
 
-FROM node:12-alpine as final-stage
+FROM node:14-alpine as final-stage
 
 ARG CREATED_TIMESTAMP=unspecified
 ARG FOUNDRY_UID=421
